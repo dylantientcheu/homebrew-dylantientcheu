@@ -9,7 +9,7 @@ class Nbacli < Formula
 
   on_macos do
     url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.0/nbacli_0.1.0_Darwin_all.tar.gz"
-    sha256 "fb9f794203c0ddd30112185d342a2b6c65ae2283eb5a32d635c4b9d30d70be77"
+    sha256 "53508dd3a49f16c2946da13c1e6097cf8d9a892e97e7a056fc1a9510170d88c3"
 
     def install
       bin.install "nbacli"
@@ -19,7 +19,7 @@ class Nbacli < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.0/nbacli_0.1.0_Linux_arm64.tar.gz"
-      sha256 "351880bf06d4b9da48269ff9fc50b52edfc797391d95a88a14ce7e34db52b7c8"
+      sha256 "a466859d481101f5859a940d019afa74de6115b04d5a80c12478dbfb47c85586"
 
       def install
         bin.install "nbacli"
@@ -27,7 +27,7 @@ class Nbacli < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.0/nbacli_0.1.0_Linux_x86_64.tar.gz"
-      sha256 "d0f7224c61306d23234341ba4a9cec42792a9d69786e2f1f0935902389ddbb68"
+      sha256 "c6c51fdc7465da33c0cb9ece84657bbebbba1f879c9ec3bfe5a90e862a3a0831"
 
       def install
         bin.install "nbacli"
