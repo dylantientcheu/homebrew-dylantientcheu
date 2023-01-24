@@ -9,7 +9,7 @@ class Nbacli < Formula
 
   on_macos do
     url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_macOS_amd64.tar.gz"
-    sha256 "4ad011555de75685c599bcc265f486c024a634b96d48a6488552d0c42bcecd59"
+    sha256 "7f7cf16979bbb051ff4ccb42e04e28cb6670d109b2cac83eeab9a03ef6e93c2a"
 
     def install
       bin.install "nbacli"
@@ -27,17 +27,17 @@ class Nbacli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_armv6.tar.gz"
-      sha256 "f08f8ef99ac367aa6098658c5c593952265cb4e4ee1f1a82bbcb4a6334868edd"
+    if Hardware::CPU.intel?
+      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_amd64.tar.gz"
+      sha256 "3352aa69c13380e67892028ff407808038d09a1c98b8c777a9a32104c7d864ea"
 
       def install
         bin.install "nbacli"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_amd64.tar.gz"
-      sha256 "ba05280398b3c7d873c37861a0461d9750b0b240fd1b482579115ba26501f854"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_armv6.tar.gz"
+      sha256 "259e9c2a80a2995cd7190b509e491581ad9cbe43ecf9ad1daad536c4c16f64b5"
 
       def install
         bin.install "nbacli"
@@ -45,7 +45,7 @@ class Nbacli < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_arm64.tar.gz"
-      sha256 "7ff0bc635841761de9e1cba2c542f2c1755ba853983bce3689c50fb556ed6d56"
+      sha256 "8f3d61d1d82a8ab0ff64c5293f414a2ba6945eb2efdbb1d4b6d95f9198fcb21e"
 
       def install
         bin.install "nbacli"
