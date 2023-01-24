@@ -5,29 +5,47 @@
 class Nbacli < Formula
   desc ""
   homepage "https://github.com/dylantientcheu/nbacli"
-  version "0.1.1"
+  version "0.1.2"
 
   on_macos do
-    url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.1/nbacli_0.1.1_Darwin_all.tar.gz"
-    sha256 "1897245d876d1666b3441d0d0c26dc8af84c0a5fc892d1cc9788d0784817f151"
+    url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_macOS_amd64.tar.gz"
+    sha256 "4ad011555de75685c599bcc265f486c024a634b96d48a6488552d0c42bcecd59"
 
     def install
       bin.install "nbacli"
     end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Nbacli
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
+      end
+    end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_armv6.tar.gz"
+      sha256 "f08f8ef99ac367aa6098658c5c593952265cb4e4ee1f1a82bbcb4a6334868edd"
+
+      def install
+        bin.install "nbacli"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.1/nbacli_0.1.1_Linux_x86_64.tar.gz"
-      sha256 "a85051b612cc0e2137a0dc5ef73a90f2d66665046839ccf5d7224aa7385c1e3a"
+      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_amd64.tar.gz"
+      sha256 "ba05280398b3c7d873c37861a0461d9750b0b240fd1b482579115ba26501f854"
 
       def install
         bin.install "nbacli"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.1/nbacli_0.1.1_Linux_arm64.tar.gz"
-      sha256 "b5a9f549ea25583fa8ef690b8526ca22aced8c7b8ad58265361ba656b94d3628"
+      url "https://github.com/dylantientcheu/nbacli/releases/download/v0.1.2/nbacli_0.1.2_linux_arm64.tar.gz"
+      sha256 "7ff0bc635841761de9e1cba2c542f2c1755ba853983bce3689c50fb556ed6d56"
 
       def install
         bin.install "nbacli"
